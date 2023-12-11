@@ -1,0 +1,24 @@
+  
+lambda_function   حجم الصورة يقل وهنعمل ده عن طريق ال s3 الصورالمشروع كله ان احنا عاوزين لما نرفع صوره على ال 
+
+step one :
+create two s3 bucket (واحده نرفع عليها الصور والتانيه تخزن الصور يعد لما يقل حجماه)
+##############################
+
+step tw2:
+create policy fron IAM then policy then log to json and upload the json file [hint: this policy has the permission to read and write on cloudwatch ans s3]
+##############################
+
+step three:
+ attach the policy to lambda function (execution role) by:
+     log to IAM role , create role ,select resource that i want to attach (in our case will be  LAMBDA) 
+##############################
+step four :
+create lambda and upload the python code that resize the image
+##############################
+
+sttep five : 
+modify some settings in lambda by:
+  log to lambda ,add trigger,add source, s3 ,select first s3 bucket which created  and checked the box then add
+ step six:
+test the lambda function by upload some images to first s3 bucket and  make sure that the images have been resized in second s3 bucket
